@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Lop | Happy Haggling</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.css">
+
+  </head>
+  <body>
+    <div id="wrapper">           
+        <div class="header"> 
+            <img src="loplogo.png"> 
+        </div>
+        <div class="formcontainer"><!-- form input fields -->
+            <form id="sellform" action="/upload" enctype="multipart/form-data" method="post">
+            <p class="inputicon"><i class="fa fa-gift"></i></p><input type="text" class="sellformfield" placeholder="Item Description">
+            <p class="inputicon"><i class="fa fa-star"></i></p>
+            <input type="text" class="sellformfield" placeholder="Desired Price">
+             <p class="inputicon"><i class="fa fa-paint-brush"></i></p>
+             <input type="text" class="sellformfield" placeholder="Color">
+             <p class="inputicon"><i class="fa fa-location-arrow"></i></p>
+             <input type="text" class="sellformfield" placeholder="Item Locale">
+              <p class="inputicon"><i class="fa fa-phone"></i></p>
+              <input type="text" class="sellformfield" placeholder="Contact Details">
+              <p class="inputicon"><i class="fa fa-camera"></i></p>
+              <!--<input type="text" class="sellformfield" placeholder="Upload Image">-->
+              <input multiple="multiple" name="upload" type="file" />
+          </form>
+
+        </div> 
+
+        <div id="buttoncontainer">       
+            <div id="leftbutton">           
+                <p><a href="index.html">CANCEL</a></p>
+            </div>
+            <div id="rightbutton">           
+                <p><a href="javascript:{}" onclick="document.getElementById('sellform').submit(); return false;">SUBMIT</a></p>
+            </div>
+        </div>     
+    </div><!-- close or wrapper -->
+</body>
+</html>

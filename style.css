@@ -1,0 +1,135 @@
+
+   
+
+.header { 
+	height: 60px;
+	width: 640px;
+}
+
+.header img { 
+	float: right;
+	margin-bottom: 5px;
+}
+
+
+#wrapper { 
+	margin: 0 auto;
+	width: 640px; 
+	padding: 10px;
+	border: 1px solid gray; 
+	} 
+
+	#navbar { 
+	border: 1px solid #fb5319 ;	
+	margin-bottom: 10px;
+	width: 640px;
+	height: 100px;
+	} 
+
+	.navbutton {
+		position: relative;
+		display: inline;
+		height: 99px;
+		width: 212px;
+		float: left;
+	}
+
+	.centerbutton { 
+	border-left: 1px solid #fb5319;	
+	border-right: 1px solid #fb5319;
+		} 
+
+	#buttoncontainer { 
+		clear: both;
+	width: 640px;
+	height: 300px;
+	}
+
+	#leftbutton { 
+		background:  #fb5319;
+		font: white;
+		width: 315px;
+		height: 280px;
+		float: left;
+	}
+
+	#leftbutton p { 
+		font: 80px Six Caps;
+		text-align: center; 
+	}
+
+	#leftbutton p a { 
+		text-decoration: none;
+		color: white;
+	}
+
+	#leftbutton p a:hover { 
+		text-decoration: none;
+		color: gray;
+	}
+
+
+	#rightbutton { 
+		background: #13e4da;
+		font: white;
+		width: 315px;
+		height: 280px;
+		float: right;
+	}
+
+	#rightbutton p { 
+		font: 80px Six Caps;
+		text-align: center; 
+	}
+
+	#rightbutton p a { 
+		text-decoration: none;
+		color: white;
+	}
+
+	#rightbutton p a:hover { 
+		text-decoration: none;
+		color: gray;
+	}
+
+
+	.sellformfield { 
+		width: 590px;
+		float: right; 
+		background: #eee;
+		font: 20px Gruppo;
+		padding: 3px;
+		margin-bottom: 15px; 
+	
+	} 
+
+	p.inputicon { 
+		color: black;
+		float: left;
+		width: 30px;
+		text-align: center; 
+		clear: left;
+		padding-right: 10px;
+		font-size: 20px; 
+		margin: 0;
+		line-height: 35px;
+		margin-bottom: 10px;
+		color: #fb5319;
+	}
+
+
+	 p.navbartype { 
+	 	color: #fb5319;
+	 	font: 15px Gruppo; 
+	 	text-align: center; 
+	 	padding-top: 15px;
+	 }
+
+	#formcontainer {
+		width: 640px;
+	}
+
+	/*.sellformfield:focus { 
+		border: none !important;
+	
+	} 
