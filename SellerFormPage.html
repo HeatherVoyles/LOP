@@ -12,22 +12,23 @@
             <img src="loplogo.png"> 
         </div>
         <div class="formcontainer"><!-- form input fields -->
-            <form id="sellform" action="/upload" enctype="multipart/form-data" method="post">
-            <p class="inputicon"><i class="fa fa-gift"></i></p><input type="text" class="sellformfield" placeholder="Item Description">
+            <!--<form id="sellform" action="/upload" enctype="multipart/form-data" method="post">-->
+            <form id="sellform" action="/upload" method="post">
+            <p class="inputicon"><i class="fa fa-gift"></i></p><input type="text" name="description" class="sellformfield" placeholder="Item Description">
             <p class="inputicon"><i class="fa fa-star"></i></p>
-            <input type="text" class="sellformfield" placeholder="Desired Price">
+            <input type="text" name="price" class="sellformfield" placeholder="Desired Price">
              <p class="inputicon"><i class="fa fa-paint-brush"></i></p>
-             <input type="text" class="sellformfield" placeholder="Color">
+             <input type="text" name="color" class="sellformfield" placeholder="Color">
              <p class="inputicon"><i class="fa fa-location-arrow"></i></p>
-             <input type="text" class="sellformfield" placeholder="Item Locale">
+             <input type="text" name="locale" class="sellformfield" placeholder="Item Locale">
               <p class="inputicon"><i class="fa fa-phone"></i></p>
-              <input type="text" class="sellformfield" placeholder="Contact Details">
+              <input type="text" name="details" class="sellformfield" placeholder="Contact Details">
               <p class="inputicon"><i class="fa fa-camera"></i></p>
               <!--<input type="text" class="sellformfield" placeholder="Upload Image">-->
               <input multiple="multiple" name="upload" type="file" />
           </form>
 
-        </div> 
+        </div>
 
         <div id="buttoncontainer">       
             <div id="leftbutton">           
@@ -38,5 +39,6 @@
             </div>
         </div>     
     </div><!-- close or wrapper -->
+    <script src="/script.js" type="text/javascript"></script>
 </body>
 </html>
