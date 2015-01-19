@@ -60,51 +60,45 @@ app.post('/upload', urlencodedParser, function(req, res){
 app.post('/upload', function (req, res){
   var form = new formidable.IncomingForm();
   form.parse(req, function(err, fields, files) {
+    var photostring = '/imageuploads/'+files.upload.name;
     res.writeHead(200, {'content-type': 'text/plain'});
 
-    client.query('INSERT INTO items(catid, userid, description, color, locale, price) VALUES (1, 1, $1, $2, $3, $4);', [fields.description, fields.color, fields.locale, fields.price], function(err, result) {
+    var client = new pg.Client(conString);
+    client.connect(function(err) {
       if(err) {
-        console.log("no bam...");
-        return console.error('error running query', err);
+        return console.error('could not connect to postgres', err);
       }
-      console.log('BAM!');
-      //output: Tue Jan 15 2013 19:12:47 GMT-600 (CST)
-      client.end();
+      client.query('INSERT INTO items(catid, userid, description, color, locale, price, photo) VALUES (1, 1, $1, $2, $3, $4, $5);', [fields.description, fields.color, fields.locale, fields.price, photostring], function(err, result) {
+        if(err) {
+          console.log("no bam...");
+          return console.error('error running query', err);
+        }
+        //output: Tue Jan 15 2013 19:12:47 GMT-600 (CST)
+        client.end();
+      });
     });
 
     /*res.write('received upload:\n\n');*/
     res.end(util.inspect({fields: fields, files: files}));
-    //res.write('done!');
+    res.end();
   });
 
   form.on('end', function(fields, files) {
     /* Temporary location of our uploaded file */
-    //var temp_path = this.openedFiles[0].path;
+    var temp_path = this.openedFiles[0].path;
     /* The file name of the uploaded file */
-    //var file_name = this.openedFiles[0].name;
+    var file_name = this.openedFiles[0].name;
     /* Location where we want to copy the uploaded file */
-    //var new_location = 'uploads/';
-/*
+    var new_location = 'imageuploads/';
+
     fs.copy(temp_path, new_location + file_name, function(err) {  
       if (err) {
         console.error(err);
       } else {
-        console.log("success!")
+        console.log("image upload success!")
       }
-    });*/
-
-    client.query('INSERT INTO items(catid, userid, description, color, locale, price) VALUES (1, 1, $1, $2, $3, $4);', [form.description, form.color, form.locale, form.price], function(err, result) {
-      if(err) {
-        console.log("no bam...");
-        return console.error('error running query', err);
-      }
-      console.log('BAM!');
-      //output: Tue Jan 15 2013 19:12:47 GMT-600 (CST)
-      client.end();
     });
   });
-
-  console.log("Test!");
 });
 
 
