@@ -1,4 +1,5 @@
-var express = require("express"),
+var express = require("express");
+var session = require("express-session"),
     app = express(),
     formidable = require('formidable'),
     util = require('util')
@@ -39,9 +40,34 @@ app.get('/', function (req, res){
   res.end(form); 
 }); */
 
+app.use(session({secret:'shhh'})); 
+var sess; 
+/*
 app.get('/', function(req, res){ 
-  res.sendfile(__dirname + '/index.html');  
+  sess=req.session; 
+  sess.name='name';
+  sess.pass='pass';
+});*/
+app.get('/', function(req, res){ 
+console.log('req.session',req.session);
+
+  res.sendfile(__dirname + '/LoginIndex.html');  
 });
+
+app.get('/index.html', function(req, res){
+
+  sess = req.session;
+  console.log(req.session['email']);
+  console.log(req.session['pass']);
+
+  if (req.session['email'] != undefined && req.session['pass'] != undefined) { 
+    res.sendfile(__dirname + '/index.html');
+  }
+  else {
+    res.sendfile(__dirname + '/LoginIndex.html');
+  }  
+});
+
 
 app.get('/SellerFormPage', function(req, res){ 
   res.sendfile(__dirname + '/SellerFormPage.html');  
@@ -56,6 +82,7 @@ app.post('/upload', urlencodedParser, function(req, res){
     console.log(req.body.price);
 
 });*/
+
 
 app.post('/upload', function (req, res){
   var form = new formidable.IncomingForm();
@@ -101,6 +128,40 @@ app.post('/upload', function (req, res){
   });
 });
 
+app.post('/register', function (req, res){
+  var form = new formidable.IncomingForm();
+  form.parse(req, function(err, fields, files) {
+
+    var client = new pg.Client(conString);
+    client.connect(function(err) {
+      if(err) {
+        return console.error('could not connect to postgres', err);
+      }
+      client.query('INSERT INTO users(email, fname, lname, password, locale) VALUES ($1, $2, $3, $4, $5);', [fields.email, fields.fname, fields.lname, fields.password, fields.locale], function(err, result) {
+        if(err) {
+          console.log("no bam...");
+          return console.error('error running query', err);
+        }
+
+        sess=req.session; 
+        sess['email']=fields.email;
+        sess['pass']=fields.password;
+
+        console.log("Registration Info:");
+        console.log(fields.email);
+        console.log(fields.password);
+        console.log(sess.email);
+        console.log(sess.pass);
+
+        console.log(sess);
+        console.log(req.session);
+
+        client.end();
+        res.sendfile(__dirname + '/index.html');
+      });
+    });
+  });
+});
 
 app.listen(8080); 
 
@@ -120,5 +181,5 @@ sequelize
     } else {
       console.log('Connection has been established successfully.')
     }
-  })
-  */
+  })*/
+

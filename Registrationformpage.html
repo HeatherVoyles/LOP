@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>LOP | Happy Haggling</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.css">
+
+  </head>
+  <body>
+    <div id="wrapper">           
+        <div class="header"> 
+            <img src="loplogo.png"> 
+        </div>
+        <div class="formcontainer">
+          <!-- form input fields -->
+            <form id="registrationform" action="/register" enctype="multipart/form-data" method="post">
+
+             <p class="inputicon"><i class="fa fa-thumbs-up"></i></p>
+             <input type="text" name="fname" class="loginformfield" placeholder="First Name">
+               <p class="inputicon"><i class="fa fa-thumbs-up"></i></p>
+             <input type="text" name="lname" class="loginformfield" placeholder="Last Name">
+              <p class="inputicon"><i class="fa fa-envelope"></i></p>
+              <input type="text" name="email" class="loginformfield" placeholder="Email Address">
+              <p class="inputicon"><i class="fa fa-map-marker"></i></p>
+             <input type="text" name="locale" class="loginformfield" placeholder="Locale">
+             <p class="inputicon"><i class="fa fa-lock"></i></p>
+             <input type="password" name="password" class="loginformfield" placeholder="Password">
+          </form>
+
+        </div>
+
+        <div id="buttoncontainer">       
+            <div id="leftbutton">           
+                <p><a href="LoginIndex.html">CANCEL</a></p>
+            </div>
+            <div id="rightbutton">           
+                <p><a href="javascript:{}" onclick="document.getElementById('registrationform').submit(); return false;">SUBMIT</a></p>
+            </div>
+        </div>     
+    </div>
+    <script src="/script.js" type="text/javascript"></script>
+</body>
+</html>

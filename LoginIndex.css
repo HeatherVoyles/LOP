@@ -19,21 +19,6 @@
 	border: 1px solid gray; 
 	} 
 
-	#loginnavbar { 
-	border: 1px solid #ffffff;
-	margin-bottom: 10px;
-	width: 640px;
-	height: 100px;
-	} 
-
-	.loginavbutton {
-		position: relative;
-		display: inline;
-		height: 99px;
-		width: 212px;
-		float: left;
-	}
-
 	#navbar { 
 	border: 1px solid #fb5319 ;	
 	margin-bottom: 10px;
@@ -52,11 +37,6 @@
 	.centerbutton { 
 	border-left: 1px solid #fb5319;	
 	border-right: 1px solid #fb5319;
-		} 
-
-	.logincenterbutton { 
-	border-left: 1px solid #ffffff;	
-	border-right: 1px solid #ffffff;
 		} 
 
 	#buttoncontainer { 
@@ -197,13 +177,6 @@
 
 
 	 p.navbartype { 
-	 	color: #fb5319;
-	 	font: 15px Gruppo; 
-	 	text-align: center; 
-	 	padding-top: 15px;
-	 }
-
-	  p.loginnavbartype { 
 	 	color: #fb5319;
 	 	font: 15px Gruppo; 
 	 	text-align: center; 
