@@ -11,8 +11,6 @@ var session = require("express-session"),
 console.log(__dirname);
 app.use(qt.static(__dirname + '/'));
 
-
-
 var pg = require('pg');
 
 var conString = "postgres://Yellow@localhost/lop";
